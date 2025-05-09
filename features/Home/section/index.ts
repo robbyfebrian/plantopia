@@ -11,3 +11,7 @@ export const FeatureSection = dynamic(() => import("./FeatureSection"), {
 export const TestimonialSection = dynamic(() => import("./TestimonialSection"), {
   ssr: false,
 });
+
+export const FaqSection = dynamic(() => import("./FaqSection"), {
+  ssr: false,
+});
