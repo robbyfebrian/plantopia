@@ -11,7 +11,7 @@ const FaqSection: React.FC = () => {
   return (
     <section className='h-screen px-32 flex flex-col items-end justify-center relative gap-10 overflow-hidden'>
       <div className='bg-[#EEE3BC] w-40 h-40 absolute -left-20 top-82 rounded-full blur-md'></div>
-      <div className='bg-[#EEE3BC] w-40 h-40 absolute -right-16 -top-24 rounded-full blur-md'></div>
+      <div className='bg-[#EEE3BC] w-40 h-40 absolute -right-16 -top-20 rounded-full blur-md'></div>
       <Image
         src={FaqPlant}
         alt='faq-plant'

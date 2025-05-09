@@ -9,18 +9,18 @@ import TestimonialCards from './components/testimonial-cards';
 
 const TestimonialSection: React.FC = () => {
   return (
-    <section className='h-[100vh] pt-24 relative overflow-hidden'>
+    <section className='h-[110vh] pt-24 relative overflow-hidden'>
       <div className='bg-[#EEE3BC] w-40 h-40 absolute -left-20 top-52 rounded-full blur-md'></div>
       <Image
         src={TestimonialPlantTwo}
         alt='testimonial-plant-two'
         className='absolute left-32 rotate-90 -z-10 w-[222px] top-20 h-[424px]'
       />
-      <div className='bg-[#EEE3BC] w-40 h-40 absolute -right-16 -bottom-32 rounded-full blur-md'></div>
+      <div className='bg-[#EEE3BC] w-40 h-40 absolute -right-16 -bottom-20 rounded-full blur-md'></div>
       <Image
         src={TestimonialPlantOne}
         alt='testimonial-plant-one'
-        className='absolute right-8 -z-10 w-[630px] -bottom-8 h-[370px]'
+        className='absolute right-8 -z-10 w-[630px] bottom-10 h-[370px]'
       />
       <div className='flex flex-col px-16'>
         <TestimonialHeader />
