@@ -30,7 +30,7 @@ const HeroSection: React.FC = () => {
           </div>
         </div>
         <div className='flex flex-col justify-center items-center gap-8'>
-          <h1 className='font-prata text-7xl text-white max-w-[1080] leading-24'>
+          <h1 className='font-prata text-7xl text-white max-w-[1080] leading-20'>
             “Tanaman Sehat Dimulai dari Satu Langkah Kecil”
           </h1>
           <p className='font-poppins font-light text-2xl text-white'>
