@@ -1,31 +1,39 @@
-import Image from 'next/image';
-import ProfilePictOne from '../../../../../public/images/testimonial__profile-picture-1.jpg';
+import Image, { StaticImageData } from 'next/image';
 
-const TestimonialCards: React.FC = () => {
-  const testimonials = [
-    '“Baru upload foto, langsung tahu tanamanku kena jamur! Gak cuma dikasih solusi, tapi juga ada kuis seru yang bikin aku makin paham cara rawatnya.”',
-    '“Senang banget bisa koleksi tanaman virtual dan dapet badge! Jadi semangat rawat tanaman tiap hari karena berasa main game.”',
-    '“Aplikasinya gampang banget dipakai. Deteksinya cepat, dan aku suka banget fitur edukasi interaktifnya. Rasanya belajar sambil main.”',
-    '“Soal-soal kuisnya bikin aku sadar banyak hal kecil soal tanaman yang sering aku abaikan. Belajar jadi menyenangkan!”',
-  ];
+type TestimonialCardsProps = {
+  hoverImage: 'left' | 'right';
+  margin: string;
+  profilePicture: StaticImageData;
+  testimonial: string;
+};
 
+const TestimonialCards: React.FC<TestimonialCardsProps> = ({
+  hoverImage,
+  margin,
+  profilePicture,
+  testimonial,
+}) => {
   return (
-    <div className='flex flex-col gap-4 w-[700px]'>
-      {testimonials.map((testimonial, index) => (
+    <div className={`flex flex-col gap-4 w-[700px] ${margin}`}>
+      <div className='relative flex gap-3 items-center group'>
         <div
-          key={index}
-          className={`relative flex gap-3 ${
-            index % 2 === 0 ? 'ml-24' : 'ml-8'
-          } items-center group`}
+          className={`absolute w-12 h-12 overflow-hidden rounded-full transform -z-10 transition-transform duration-300 ${
+            hoverImage === 'left'
+              ? 'translate-x-6 translate-y-0 group-hover:-translate-x-12 group-hover:-translate-y-12'
+              : 'right-0 -translate-x-32 translate-y-0 group-hover:-translate-x-19 group-hover:-translate-y-12'
+          }`}
         >
-          <div className='absolute w-12 h-12 overflow-hidden rounded-full transform translate-x-6 translate-y-0 group-hover:-translate-x-12 group-hover:-translate-y-12 -z-10 transition-transform duration-300'>
-            <Image src={ProfilePictOne} alt={`ProfilePict${index}`} />
-          </div>
-          <div className='bg-[#EEE3BC] px-6 py-4 rounded-2xl max-w-xl'>
-            <p className='font-prata line-clamp-2'>{testimonial}</p>
-          </div>
+          <Image
+            src={profilePicture}
+            alt='Profile Picture'
+            width={48}
+            height={48}
+          />
         </div>
-      ))}
+        <div className='bg-[#EEE3BC] px-6 py-4 rounded-2xl max-w-xl'>
+          <p className='font-prata line-clamp-2'>{testimonial}</p>
+        </div>
+      </div>
     </div>
   );
 };
