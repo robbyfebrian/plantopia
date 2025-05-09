@@ -1,10 +1,12 @@
 import Image from 'next/image';
 import CtaImage from '../../../../public/images/cta__background.jpg';
 import Button from '../../../../components/common/button';
+import Footer from '../../../../components/layout/footer';
 
 const CtaSection: React.FC = () => {
   return (
     <section className='h-screen relative overflow-hidden'>
+      <div className='absolute h-2/3 inset-0 bg-gradient-to-t from-[#282828] to-[#171717]/20 z-10' />
       <div className='overflow-y-hidden h-2/3 relative'>
         <Image
           alt='cta-background'
@@ -33,7 +35,7 @@ const CtaSection: React.FC = () => {
           </div>
         </div>
       </div>
-      <div className='absolute h-2/3 inset-0 bg-gradient-to-t from-[#282828] to-[#171717]/20 z-10' />
+      <Footer />
     </section>
   );
 };
