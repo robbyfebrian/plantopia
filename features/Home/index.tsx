@@ -1,13 +1,17 @@
 'use client';
 
-import FeatureSection from './section/FeatureSection';
-import HeroSection from './section/HeroSection';
+import {
+  HeroSection,
+  FeatureSection,
+  TestimonialSection,
+} from './section/index';
 
 const HomeFeature: React.FC = () => {
   return (
     <main className=''>
       <HeroSection />
       <FeatureSection />
+      <TestimonialSection />
     </main>
   );
 };
