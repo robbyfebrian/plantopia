@@ -6,7 +6,7 @@ import FeatureImageFour from '../../../../public/images/feature__figure-4.jpg';
 
 const FeatureSection: React.FC = () => {
   return (
-    <section className='h-[140vh] py-24'>
+    <section className='h-[140vh] py-24 bg-white'>
       <div className='flex flex-col gap-32 px-16'>
         <div className='gap-4 flex flex-col justify-center items-center '>
           <h2 className='font-prata text-7xl w-full leading-24'>

@@ -1,6 +1,6 @@
 @import 'tailwindcss';
 @import "tw-animate-css";
-/* 
+/*
 ---break--- */
 @custom-variant dark (&:is(.dark *));
 
@@ -78,16 +78,10 @@
   --radius-lg: var(--radius);
   --radius-xl: calc(var(--radius) + 4px);
 }
-/* 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-} */
 
 body {
   font-family: var(--font-poppins);
+  background-color: #282828;
 }
 
 .font-prata {
@@ -110,7 +104,7 @@ body {
   background-color: var(--green-secondary);
 }
 
-/* 
+/*
 ---break--- */
 
 .dark {
@@ -147,7 +141,7 @@ body {
   --sidebar-ring: oklch(0.556 0 0);
 }
 
-/* 
+/*
 ---break--- */
 
 @layer base {

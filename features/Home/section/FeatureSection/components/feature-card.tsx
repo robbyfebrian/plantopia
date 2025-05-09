@@ -25,7 +25,7 @@ const FeatureCard: React.FC<FeatureCardProps> = ({
     >
       <div className={`absolute ${offsetY}`}>
         <h3
-          className='absolute inset-0 -z-10 font-prata text-4xl text-center transform translate-y-0 group-hover:-translate-y-14 transition-transform duration-300'
+          className='absolute inset-0 font-prata text-4xl text-center transform translate-y-0 group-hover:-translate-y-14 transition-transform duration-300'
         >
           {title}
         </h3>
@@ -39,9 +39,9 @@ const FeatureCard: React.FC<FeatureCardProps> = ({
                 : 'h-[288px] w-[432px]'
             }`}
           />
-          <div className="absolute inset-0 rounded-2xl bg-gradient-to-b from-[#282828]/40 to-[#171717] opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+          <div className="absolute z-10 inset-0 rounded-2xl bg-gradient-to-b from-[#282828]/40 to-[#171717] opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
           <p
-            className={`absolute ${
+            className={`absolute z-20 ${
               orientation === 'portrait' ? 'max-w-[195px]' : 'max-w-[360px]'
             } font-prata text-center text-white text-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300`}
           >
