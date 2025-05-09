@@ -15,3 +15,7 @@ export const TestimonialSection = dynamic(() => import("./TestimonialSection"), 
 export const FaqSection = dynamic(() => import("./FaqSection"), {
   ssr: false,
 });
+
+export const CtaSection = dynamic(() => import("./CtaSection"), {
+  ssr: false,
+});

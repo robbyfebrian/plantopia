@@ -5,6 +5,7 @@ import {
   FeatureSection,
   TestimonialSection,
   FaqSection,
+  CtaSection,
 } from './section/index';
 
 const HomeFeature: React.FC = () => {
@@ -14,6 +15,7 @@ const HomeFeature: React.FC = () => {
       <FeatureSection />
       <TestimonialSection />
       <FaqSection />
+      <CtaSection />
     </main>
   );
 };
