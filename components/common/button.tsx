@@ -14,7 +14,7 @@ const Button: React.FC<ButtonProps> = ({
   const primaryStyles =
     'bg-[#4e6148] hover:bg-[#34432f] focus:ring-green-700 transition-colors duration-300 shadow-[0_0_20px_rgba(93,120,79,0.6)]';
   const secondaryStyles =
-    'bg-none border border-white transition-colors duration-300 hover:bg-[rgba(0,0,0,1)] shadow-[0_0_20px_rgba(93,120,79,0.6)]';
+    'bg-none border border-white transition-colors duration-300 hover:bg-[#000000]/25 shadow-[0_0_20px_rgba(93,120,79,0.6)]';
 
   const styles =
     variant === 'primary'
