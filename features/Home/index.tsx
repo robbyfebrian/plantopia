@@ -10,7 +10,7 @@ import {
 
 const HomeFeature: React.FC = () => {
   return (
-    <main className=''>
+    <main>
       <HeroSection />
       <FeatureSection />
       <TestimonialSection />

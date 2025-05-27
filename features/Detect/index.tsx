@@ -4,7 +4,7 @@ import { DetectSection } from './section/index';
 
 const DetectFeature: React.FC = () => {
   return (
-    <main className=''>
+    <main>
       <DetectSection />
     </main>
   );

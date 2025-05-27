@@ -1,6 +1,7 @@
 import { SocialIcon } from 'react-social-icons';
 import Button from '../common/button';
 import 'lucide-react';
+import Link from 'next/link';
 
 const Footer: React.FC = () => {
   return (
@@ -16,32 +17,26 @@ const Footer: React.FC = () => {
           </div>
         </div>
         <div className='flex flex-col min-w-[900px]'>
-          <div className='flex pb-6 justify-between'>
-            <div className='flex flex-wrap max-w-72 gap-x-14 gap-y-4 font-prata ml-2'>
-              <a
-                href='#beranda'
+          <div className='flex pb-6 justify-between items-center'>
+            <div className='flex gap-x-4 font-prata ml-2'>
+              <Link
+                href='/'
                 className='min-w-[90px] relative after:content-[""] after:absolute after:-left-2 after:top-0 after:w-[2px] after:h-full after:scale-y-0 after:bg-white after:transition-transform after:duration-500 hover:after:scale-y-100'
               >
                 Beranda
-              </a>
-              <a
-                href='#deteksi'
+              </Link>
+              <Link
+                href='/deteksi'
                 className='min-w-[90px] relative after:content-[""] after:absolute after:-left-2 after:top-0 after:w-[2px] after:h-full after:scale-y-0 after:bg-white after:transition-transform after:duration-500 hover:after:scale-y-100'
               >
                 Deteksi
-              </a>
-              <a
-                href='#forum'
+              </Link>
+              <Link
+                href='/forum'
                 className='min-w-[90px] relative after:content-[""] after:absolute after:-left-2 after:top-0 after:w-[2px] after:h-full after:scale-y-0 after:bg-white after:transition-transform after:duration-500 hover:after:scale-y-100'
               >
                 Forum
-              </a>
-              <a
-                href='#belajar'
-                className='min-w-[90px] relative after:content-[""] after:absolute after:-left-2 after:top-0 after:w-[2px] after:h-full after:scale-y-0 after:bg-white after:transition-transform after:duration-500 hover:after:scale-y-100'
-              >
-                Belajar
-              </a>
+              </Link>
             </div>
             <div className='flex mr-16'>
               <Button
