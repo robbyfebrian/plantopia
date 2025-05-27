@@ -1,11 +1,9 @@
-type ButtonProps = {
-  label: string;
-  onClick: () => void;
-  variant?: 'primary' | 'secondary';
-}
+import Link from "next/link";
+import { ButtonProps } from "./type";
 
 const Button: React.FC<ButtonProps> = ({
   label,
+  href,
   onClick,
   variant = 'primary',
 }) => {
@@ -21,8 +19,12 @@ const Button: React.FC<ButtonProps> = ({
       ? `${baseStyles} ${primaryStyles}`
       : `${baseStyles} ${secondaryStyles}`;
 
-  return (
-    <button className={styles} onClick={onClick}>
+  return href ? (
+    <Link className={styles} href={href}>
+      {label}
+    </Link>
+  ) : (
+    <button className={styles} onClick={onClick} type="button">
       {label}
     </button>
   );

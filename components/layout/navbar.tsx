@@ -1,42 +1,60 @@
 'use client';
 
 import React from 'react';
+import Link from 'next/link';
 import Button from '../common/button';
+import { navbarProps } from './type';
 
-const Navbar: React.FC = () => {
+const Navbar: React.FC<navbarProps> = ({ style = 'light' }) => {
   return (
-    <nav className='px-16 py-10 flex justify-between items-center'>
-      <div className='text-4xl font-prata text-white text-left '>Plantopia</div>
-      <div className='flex space-x-16 justify-center items-center text-white font-prata'>
-        <a
-          href='#beranda'
-          className='relative after:content-[""] after:absolute after:left-0 after:-bottom-1 after:h-[2px] after:w-full after:scale-x-0 after:bg-white after:transition-transform after:duration-300 hover:after:scale-x-100'
+    <nav
+    className={`px-16 py-10 flex justify-between items-center ${
+        style === 'dark'
+          ? 'bg-white'
+          : 'bg-transparent'
+      }`}
+    >
+      <div
+        className={`text-4xl font-prata text-left ${
+          style === 'dark' ? 'text-black' : 'text-white'
+        }`}
+      >
+        Plantopia
+      </div>
+      <div
+        className={`flex space-x-16 justify-center items-center font-prata ${
+          style === 'dark' ? 'text-black' : 'text-white'
+        }`}
+      >
+        <Link
+          href='/'
+          className={`relative after:content-[""] after:absolute after:left-0 after:-bottom-1 after:h-[2px] after:w-full after:scale-x-0 ${
+            style === 'dark' ? 'after:bg-black' : 'after:bg-white'
+          } after:transition-transform after:duration-300 hover:after:scale-x-100`}
         >
           Beranda
-        </a>
-        <a
-          href='#deteksi'
-          className='relative after:content-[""] after:absolute after:left-0 after:-bottom-1 after:h-[2px] after:w-full after:scale-x-0 after:bg-white after:transition-transform after:duration-300 hover:after:scale-x-100'
+        </Link>
+        <Link
+          href='/deteksi'
+          className={`relative after:content-[""] after:absolute after:left-0 after:-bottom-1 after:h-[2px] after:w-full after:scale-x-0 ${
+            style === 'dark' ? 'after:bg-black' : 'after:bg-white'
+          } after:transition-transform after:duration-300 hover:after:scale-x-100`}
         >
           Deteksi
-        </a>
-        <a
-          href='#forum'
-          className='relative after:content-[""] after:absolute after:left-0 after:-bottom-1 after:h-[2px] after:w-full after:scale-x-0 after:bg-white after:transition-transform after:duration-300 hover:after:scale-x-100'
+        </Link>
+        <Link
+          href='/forum'
+          className={`relative after:content-[""] after:absolute after:left-0 after:-bottom-1 after:h-[2px] after:w-full after:scale-x-0 ${
+            style === 'dark' ? 'after:bg-black' : 'after:bg-white'
+          } after:transition-transform after:duration-300 hover:after:scale-x-100`}
         >
           Forum
-        </a>
-        <a
-          href='#belajar'
-          className='relative after:content-[""] after:absolute after:left-0 after:-bottom-1 after:h-[2px] after:w-full after:scale-x-0 after:bg-white after:transition-transform after:duration-300 hover:after:scale-x-100'
-        >
-          Belajar
-        </a>
+        </Link>
       </div>
       <div className='flex space-x-4'>
         <Button
           label='Bergabung'
-          onClick={() => console.log('Login clicked')}
+          href='login'
           variant='primary'
         />
       </div>
