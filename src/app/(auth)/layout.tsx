@@ -1,20 +1,18 @@
-import { ReactNode } from "react";
-import ImageWrapper from "../../../features/Auth/section/ImageWrapper"; 
+import { ImageWrapper } from 'features/Auth/components';
+import Link from 'next/link';
+import { ArrowLeft } from 'lucide-react';
 
-export default function AuthLayout({
-  children,
-}: {
-  children: ReactNode;
-}) {
-  return (
-    <div className="flex flex-col md:flex-row w-screen h-screen">
-      {/* KIRI = FORM */}
-      <div className="w-full md:w-1/2 bg-white h-full overflow-y-auto p-6">
-        {children}
-      </div>
-
-      {/* KANAN = GAMBAR */}
-      <ImageWrapper />
-    </div>
-  );
+interface AuthLayoutProps {
+  children: React.ReactNode;
 }
+
+const AuthLayout: React.FC<AuthLayoutProps> = ({ children }) => {
+  return (
+    <main className='flex h-screen w-full bg-white items-center justify-center'>
+      {children}
+      <ImageWrapper />
+    </main>
+  );
+};
+
+export default AuthLayout;

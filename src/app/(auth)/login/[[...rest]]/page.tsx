@@ -1,6 +1,14 @@
-import SignInForm from "../../../../../features/Auth/section/SignInSection";
+import SignInSection from 'features/Auth/components/SignInForm';
+import { Metadata } from 'next';
 
+export const metadata: Metadata = {
+  title: 'Plantopia | Login',
+  description:
+    'Login to your Plantopia account to access personalized features.',
+};
 
-export default function LoginPage() {
-  return <SignInForm />;
-}
+const LoginPage = () => {
+  return <SignInSection />;
+};
+
+export default LoginPage;
