@@ -1,4 +1,4 @@
-import SignInForm from "../../../../../features/AuthSection/section/SignInSection";
+import SignInForm from "../../../../../features/Auth/section/SignInSection";
 
 
 export default function LoginPage() {

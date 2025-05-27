@@ -1,5 +1,5 @@
 import { ReactNode } from "react";
-import ImageWrapper from "../../../features/AuthSection/section/ImageWrapper"; 
+import ImageWrapper from "../../../features/Auth/section/ImageWrapper"; 
 
 export default function AuthLayout({
   children,
