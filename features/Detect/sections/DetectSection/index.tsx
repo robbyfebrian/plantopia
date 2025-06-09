@@ -4,7 +4,7 @@ import React, { useState } from 'react';
 
 import PreviewSection from '../PreviewSection';
 import Footer from '../../../../components/layout/footer';
-import StepComponent from 'features/Detect/component/StepComponent';
+import StepComponent from 'features/Detect/components/StepComponent';
 import { Camera, RefreshCcw, Lightbulb } from 'lucide-react';
 import Navbar from 'components/layout/navbar';
 

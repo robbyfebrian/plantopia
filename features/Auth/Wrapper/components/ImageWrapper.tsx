@@ -6,12 +6,12 @@ import { motion, AnimatePresence } from 'motion/react';
 
 const slides = [
   {
-    image: require('../../../public/images/auth__figure-1.jpg'),
+    image: require('../../../../public/images/auth__figure-1.jpg'),
     title: 'Cegah Hama Sejak Dini',
     desc: 'Memeriksa daun dan batang secara rutin serta menjaga kebersihan lingkungan tanaman dapat mencegah serangan hama dan penyakit.',
   },
   {
-    image: require('../../../public/images/auth__figure-2.jpg'),
+    image: require('../../../../public/images/auth__figure-2.jpg'),
     title: 'Rawat Tanamanmu Setiap Hari',
     desc: 'Penyiraman dan pemupukan yang tepat waktu membantu tanaman tumbuh sehat dan subur.',
   },

@@ -1,6 +1,4 @@
-import { ImageWrapper } from 'features/Auth/components';
-import Link from 'next/link';
-import { ArrowLeft } from 'lucide-react';
+import ImageWrapperSection from 'features/Auth/Wrapper';
 
 interface AuthLayoutProps {
   children: React.ReactNode;
@@ -10,7 +8,7 @@ const AuthLayout: React.FC<AuthLayoutProps> = ({ children }) => {
   return (
     <main className='flex h-screen w-full bg-white items-center justify-center'>
       {children}
-      <ImageWrapper />
+      <ImageWrapperSection />
     </main>
   );
 };

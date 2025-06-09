@@ -29,7 +29,7 @@ const SignInForm = () => {
 
       if (result.status === 'complete') {
         await setActive({ session: result.createdSessionId });
-        router.push('/dashboard'); // ganti dengan route tujuan setelah login
+        router.push('/overview');
       } else {
         console.log(result);
       }

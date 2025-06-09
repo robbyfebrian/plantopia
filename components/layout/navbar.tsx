@@ -8,9 +8,9 @@ import { navbarProps } from './type';
 const Navbar: React.FC<navbarProps> = ({ style = 'light' }) => {
   return (
     <nav
-    className={`px-16 py-10 flex justify-between items-center ${
+      className={`px-16 py-10 flex justify-between items-center ${
         style === 'dark'
-          ? 'bg-white'
+          ? 'bg-white border-b border-[#B5B5B5]'
           : 'bg-transparent'
       }`}
     >
@@ -52,11 +52,7 @@ const Navbar: React.FC<navbarProps> = ({ style = 'light' }) => {
         </Link>
       </div>
       <div className='flex space-x-4'>
-        <Button
-          label='Bergabung'
-          href='login'
-          variant='primary'
-        />
+        <Button label='Bergabung' href='login' variant='primary' />
       </div>
     </nav>
   );

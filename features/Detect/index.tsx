@@ -1,6 +1,6 @@
 'use client';
 
-import { DetectSection } from './section/index';
+import { DetectSection } from './sections/index';
 
 const DetectFeature: React.FC = () => {
   return (

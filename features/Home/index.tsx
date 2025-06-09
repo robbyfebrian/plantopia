@@ -6,7 +6,7 @@ import {
   TestimonialSection,
   FaqSection,
   CtaSection,
-} from './section/index';
+} from './sections/index';
 
 const HomeFeature: React.FC = () => {
   return (
