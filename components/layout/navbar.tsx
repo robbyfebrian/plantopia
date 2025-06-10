@@ -43,7 +43,7 @@ const Navbar: React.FC<navbarProps> = ({ style = 'light' }) => {
           Deteksi
         </Link>
         <Link
-          href='/forum'
+          href='/forum/article'
           className={`relative after:content-[""] after:absolute after:left-0 after:-bottom-1 after:h-[2px] after:w-full after:scale-x-0 ${
             style === 'dark' ? 'after:bg-black' : 'after:bg-white'
           } after:transition-transform after:duration-300 hover:after:scale-x-100`}

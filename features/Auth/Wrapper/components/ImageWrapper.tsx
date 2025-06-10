@@ -3,15 +3,18 @@
 import Image from 'next/image';
 import { useEffect, useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
+import AuthImage1 from '../../../../public/images/auth__figure-1.jpg';
+import AuthImage2 from '../../../../public/images/auth__figure-2.jpg';
+
 
 const slides = [
   {
-    image: require('../../../../public/images/auth__figure-1.jpg'),
+    image: AuthImage1,
     title: 'Cegah Hama Sejak Dini',
     desc: 'Memeriksa daun dan batang secara rutin serta menjaga kebersihan lingkungan tanaman dapat mencegah serangan hama dan penyakit.',
   },
   {
-    image: require('../../../../public/images/auth__figure-2.jpg'),
+    image: AuthImage2,
     title: 'Rawat Tanamanmu Setiap Hari',
     desc: 'Penyiraman dan pemupukan yang tepat waktu membantu tanaman tumbuh sehat dan subur.',
   },
