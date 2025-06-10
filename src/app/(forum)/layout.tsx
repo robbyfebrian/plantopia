@@ -21,9 +21,9 @@ export default function ForumLayout({
           buttonLabel="New Article"
           onButtonClick={() => setIsModalOpen(true)}
           navItems={[
-            { label: 'My Article', href: '/forum/article', icon: <Home size={18} /> },
-            { label: 'Explore', href: '/forum/explore', icon: <FlameIcon size={18} /> },
-            { label: 'Saved', href: '/forum/saved', icon: <Bookmark size={18} /> },
+            { label: 'My Article', href: '/article', icon: <Home size={18} /> },
+            { label: 'Explore', href: '/explore', icon: <FlameIcon size={18} /> },
+            { label: 'Saved', href: '/saved', icon: <Bookmark size={18} /> },
           ]}
         />
         <main className="flex-1 bg-gray-50">

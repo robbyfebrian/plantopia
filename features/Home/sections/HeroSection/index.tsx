@@ -12,9 +12,6 @@ const HeroSection: React.FC = () => {
       <div className='absolute inset-0 -z-10 overflow-y-hidden h-screen'>
         <Image alt='hero-background' src={HeroImage} />
       </div>
-      <button className='absolute bottom-8 right-8'>
-        <ArrowDownCircle color='white' size={100} strokeWidth={0.5} />
-      </button>
       <div className='absolute inset-0 bg-gradient-to-r from-[#171717]/80 to-[#171717]/20 -z-10' />
       <Navbar />
       <div className='flex flex-col justify-center gap-8 text-center pt-16'>
@@ -38,7 +35,10 @@ const HeroSection: React.FC = () => {
             penyakit.
           </p>
         </div>
-        <button className='relative flex justify-center items-center mx-auto w-[300px] h-[120px] bg-black/40 rounded-2xl shadow-[0_0_8px_white]'>
+        <button
+          onClick={() => (window.location.href = '/deteksi')}
+          className='relative flex justify-center items-center mx-auto w-[300px] h-[120px] bg-black/40 rounded-2xl shadow-[0_0_8px_white]'
+        >
           <div className='absolute -top-[1px] -left-[1px] w-1/4 h-1/3 border-t-2 border-l-2 border-white rounded-tl-2xl'>
             <div className='absolute -bottom-[4px] -left-[5px] w-2 h-2 bg-white rotate-45'></div>
             <div className='absolute -top-[5px] -right-[4px] w-2 h-2 bg-white rotate-45'></div>

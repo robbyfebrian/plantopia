@@ -8,7 +8,7 @@ import { navbarProps } from './type';
 const Navbar: React.FC<navbarProps> = ({ style = 'light' }) => {
   return (
     <nav
-      className={`px-16 py-10 flex justify-between items-center ${
+      className={`px-16 py-6 flex justify-between items-center ${
         style === 'dark'
           ? 'bg-white border-b border-[#B5B5B5]'
           : 'bg-transparent'
@@ -43,7 +43,7 @@ const Navbar: React.FC<navbarProps> = ({ style = 'light' }) => {
           Deteksi
         </Link>
         <Link
-          href='/forum/article'
+          href='/article'
           className={`relative after:content-[""] after:absolute after:left-0 after:-bottom-1 after:h-[2px] after:w-full after:scale-x-0 ${
             style === 'dark' ? 'after:bg-black' : 'after:bg-white'
           } after:transition-transform after:duration-300 hover:after:scale-x-100`}

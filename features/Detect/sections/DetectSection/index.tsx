@@ -33,7 +33,7 @@ const DeteksiSection = () => {
   return (
     <section className='bg-white text-gray-800 font-poppins flex flex-col min-h-screen'>
       <Navbar style='dark' />
-      <div className='text-center pt-4 pb-12 mx-auto max-w-[1000px]'>
+      <div className='text-center mx-auto max-w-[1000px] py-12'>
         <h1 className='text-2xl md:text-4xl font-normal mb-4 text-black font-prata leading-tight'>
           Deteksi Sekarang, Selamatkan Tanamanmu!
         </h1>

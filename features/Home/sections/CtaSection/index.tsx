@@ -25,12 +25,12 @@ const CtaSection: React.FC = () => {
             <Button
               label='Bergabung Sekarang'
               variant='primary'
-              onClick={() => console.log('register clicked')}
+              href='/login'
             />
             <Button
               label='Cek Forum Komunitas'
               variant='secondary'
-              onClick={() => console.log('forum clicked')}
+              href='/article'
             />
           </div>
         </div>
