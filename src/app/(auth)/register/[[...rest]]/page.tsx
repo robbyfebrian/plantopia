@@ -1,4 +1,4 @@
-import SignUpSection from 'features/Auth/SignUp/index';
+import { SignUp } from '@clerk/nextjs';
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
@@ -8,7 +8,11 @@ export const metadata: Metadata = {
 };
 
 const RegisterPage = () => {
-  return <SignUpSection />;
+  return (
+    <div className="flex justify-center items-center w-1/2 min-h-screen">
+      <SignUp />
+    </div>
+  );
 };
 
 export default RegisterPage;

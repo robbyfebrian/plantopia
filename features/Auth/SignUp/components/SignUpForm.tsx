@@ -11,10 +11,12 @@ const SignUpForm = () => {
   const [password, setPassword] = useState('');
   const [name, setName] = useState('');
   const [error, setError] = useState('');
+  const [pendingVerification, setPendingVerification] = useState(false);
+  const [otp, setOtp] = useState('');
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-
+    setError('');
     try {
       if (!signUp) {
         setError('Sign up service is not available.');
@@ -28,8 +30,44 @@ const SignUpForm = () => {
       });
 
       await signUp.prepareEmailAddressVerification({ strategy: 'email_code' });
+      setPendingVerification(true);
     } catch (err: any) {
-      setError(err.errors?.[0]?.message || 'Gagal mendaftar');
+      console.error('SignUp error:', err);
+      if (err?.errors && Array.isArray(err.errors) && err.errors[0]?.message) {
+        setError(err.errors[0].message);
+      } else if (err?.message) {
+        setError(err.message);
+      } else {
+        setError(JSON.stringify(err));
+      }
+    }
+  };
+
+  const handleVerify = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setError('');
+    try {
+      if (!signUp) {
+        setError('Sign up service is not available.');
+        return;
+      }
+      const result = await signUp.attemptEmailAddressVerification({ code: otp });
+      if (result.status === 'complete') {
+        // Optionally, set session active or redirect
+        // await setActive({ session: result.createdSessionId });
+        window.location.href = '/login';
+      } else {
+        setError('Kode verifikasi salah atau belum lengkap');
+      }
+    } catch (err: any) {
+      console.error('OTP error:', err);
+      if (err?.errors && Array.isArray(err.errors) && err.errors[0]?.message) {
+        setError(err.errors[0].message);
+      } else if (err?.message) {
+        setError(err.message);
+      } else {
+        setError(JSON.stringify(err));
+      }
     }
   };
 
@@ -45,68 +83,85 @@ const SignUpForm = () => {
           </Link>
           <h1 className='font-prata text-4xl mb-0 text-[#5D784F]'>Plantopia</h1>
         </div>
-        <form onSubmit={handleSubmit} className='w-lg space-y-4'>
-          <h2 className='text-2xl font-semibold mb-2'>Buat Akun!</h2>
-          <p className='tracking-tighter text-[#B5B5B5] mb-7'>
-            Bergabunglah dengan komunitas petani cerdas dan mulai deteksi
-            penyakit tanaman dengan cepat, mudah, dan akurat.
-          </p>
-
-          <div className='flex flex-col gap-2'>
-            <label className='font-semibold text-lg'>Nama Lengkap</label>
+        {!pendingVerification ? (
+          <form onSubmit={handleSubmit} className='w-lg space-y-4'>
+            <h2 className='text-2xl font-semibold mb-2'>Buat Akun!</h2>
+            <p className='tracking-tighter text-[#B5B5B5] mb-7'>
+              Bergabunglah dengan komunitas petani cerdas dan mulai deteksi
+              penyakit tanaman dengan cepat, mudah, dan akurat.
+            </p>
+            <div className='flex flex-col gap-2'>
+              <label className='font-semibold text-lg'>Nama Lengkap</label>
+              <input
+                type='text'
+                className='w-full p-3 rounded border placeholder:font-light'
+                value={name}
+                onChange={(e) => setName(e.target.value)}
+                placeholder='John Doe'
+                required
+              />
+            </div>
+            <div className='flex flex-col gap-2'>
+              <label className='font-semibold text-lg'>Email</label>
+              <input
+                type='email'
+                className='w-full p-3 rounded border placeholder:font-light'
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                placeholder='name@plantopia.com'
+                required
+              />
+            </div>
+            <div className='flex flex-col gap-2'>
+              <label className='font-semibold text-lg'>Password</label>
+              <input
+                type='password'
+                className='w-full p-3 rounded border placeholder:font-light'
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                placeholder='minimal 8 karakter'
+                required
+              />
+            </div>
+            {error && <p className='text-red-600'>{error}</p>}
+            <button
+              type='submit'
+              className='w-full bg-[#5D784F] text-white font-semibold py-2 rounded-sm'
+            >
+              Daftar
+            </button>
+            <p className='text-sm'>
+              Sudah punya akun?{' '}
+              <a className='text-[#5D784F] font-semibold py-3' href='/login'>
+                Login
+              </a>
+            </p>
+          </form>
+        ) : (
+          <form onSubmit={handleVerify} className='w-lg space-y-4'>
+            <h2 className='text-2xl font-semibold mb-2'>Verifikasi Email</h2>
+            <p className='mb-4'>Masukkan kode OTP yang dikirim ke email kamu.</p>
             <input
               type='text'
-              className='w-full p-3 rounded border placeholder:font-light'
-              value={name}
-              onChange={(e) => setName(e.target.value)}
-              placeholder='John Doe'
+              className='w-full p-3 rounded border'
+              value={otp}
+              onChange={(e) => setOtp(e.target.value)}
+              placeholder='Kode OTP'
               required
             />
-          </div>
-
-          <div className='flex flex-col gap-2'>
-            <label className='font-semibold text-lg'>Email</label>
-            <input
-              type='email'
-              className='w-full p-3 rounded border placeholder:font-light'
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              placeholder='name@plantopia.com'
-              required
-            />
-          </div>
-
-          <div className='flex flex-col gap-2'>
-            <label className='font-semibold text-lg'>Password</label>
-            <input
-              type='password'
-              className='w-full p-3 rounded border placeholder:font-light'
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-              placeholder='minimal 8 karakter'
-              required
-            />
-          </div>
-
-          {error && <p className='text-red-600'>{error}</p>}
-
-          <button
-            type='submit'
-            className='w-full bg-[#5D784F] text-white font-semibold py-2 rounded-sm'
-          >
-            Daftar
-          </button>
-
-          <p className='text-sm'>
-            Sudah punya akun?{' '}
-            <a className='text-[#5D784F] font-semibold py-3' href='/login'>
-              Login
-            </a>
-          </p>
-        </form>
+            {error && <p className='text-red-600'>{error}</p>}
+            <button
+              type='submit'
+              className='w-full bg-[#5D784F] text-white font-semibold py-2 rounded-sm'
+            >
+              Verifikasi
+            </button>
+          </form>
+        )}
         <p className='font-semibold tracking-tight text-[#B5B5B5] text-xs'>
           &copy;2025 Plantopia. All Right Reserved
         </p>
+        <div id='clerk-captcha' className='absolute invisible'></div>
       </div>
     </section>
   );
