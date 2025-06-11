@@ -50,7 +50,7 @@ export default function NewArticleModal({
                 </div>
 
                 {/* Image Upload Box */}
-                <div className="w-32 h-32 border rounded-xl flex items-center justify-center bg-gray-50 mb-5">
+                <div className="w-32 h-32 border rounded-xl flex items-center justify-center bg-gray-50j mb-5">
                   <span className="text-3xl text-gray-400">+</span>
                 </div>
 
