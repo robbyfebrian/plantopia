@@ -9,7 +9,11 @@ export const metadata: Metadata = {
 };
 
 const LoginPage = () => {
-  return <SignIn />;
+  return (
+    <div className='flex justify-center items-center w-1/2 min-h-screen'>
+      <SignIn />
+    </div>
+  );
 };
 
 export default LoginPage;
