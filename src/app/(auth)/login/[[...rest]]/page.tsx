@@ -1,5 +1,4 @@
 import { SignIn } from '@clerk/nextjs';
-import SignInSection from 'features/Auth/SignIn/index';
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
