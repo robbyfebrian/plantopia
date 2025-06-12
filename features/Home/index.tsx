@@ -1,6 +1,5 @@
 'use client';
 
-import { ArrowDownCircle } from 'lucide-react';
 import {
   HeroSection,
   FeatureSection,
@@ -8,6 +7,7 @@ import {
   FaqSection,
   CtaSection,
 } from './sections/index';
+import ScrollUp from './components/ScrollUp';
 
 const HomeFeature: React.FC = () => {
   return (
@@ -17,9 +17,7 @@ const HomeFeature: React.FC = () => {
       <TestimonialSection />
       <FaqSection />
       <CtaSection />
-      <button className='sticky bottom-8 left-auto right-8 float-right z-40 mix-blend-difference'>
-        <ArrowDownCircle color='white' size={100} strokeWidth={0.5} />
-      </button>
+      <ScrollUp />
     </main>
   );
 };

@@ -12,7 +12,7 @@ const dummyArticles = Array.from({ length: 6 }, (_, i) => ({
 
 const SavedPage: React.FC = () => {
   return (
-    <div className='min-h-screen bg-white px-16 py-8'>
+    <div className='min-h-screen bg-white px-20 lg:px-16 py-8'>
       <div className='max-w-4xl mb-8'>
         <SearchBar placeholder=' Cari artikel...' />
       </div>

@@ -17,7 +17,7 @@ const PlantCollectionSection: React.FC = () => {
   return (
     <div className='relative flex flex-col'>
       <div className='absolute w-full bg-[#4E6148] h-[277px] rounded-br-[60px]'></div>
-      <div className='relative z-19 text-white px-16 py-9'>
+      <div className='relative z-19 text-white pl-20 pr-8 lg:px-16 py-9'>
         <div className='flex flex-col items-start gap-2 mb-8'>
           <h1 className='font-prata text-3xl'>Koleksi Tanamanmu</h1>
           <p>
@@ -25,7 +25,7 @@ const PlantCollectionSection: React.FC = () => {
             dan pantau kesehatannya secara berkala!
           </p>
         </div>
-        <div className='flex items-center mb-9'>
+        <div className='flex flex-col md:flex-row gap-6 items-center mb-9'>
           <Carousel className='w-full max-w-xs'>
             <CarouselContent>
               {Array.from({ length: 5 }).map((_, index) => (
@@ -43,7 +43,7 @@ const PlantCollectionSection: React.FC = () => {
             <CarouselPrevious variant={'secondary'} />
             <CarouselNext variant={'secondary'} />
           </Carousel>
-          <div className='ml-13 p-4 bg-white rounded-2xl border border-[#B5B5B5] w-full'>
+          <div className='md:ml-13 p-4 bg-white rounded-2xl border border-[#B5B5B5] w-full'>
             <div className='flex flex-col gap-4'>
               <div className='flex flex-col gap-1'>
                 <div className='flex justify-between items-center'>
@@ -76,16 +76,16 @@ const PlantCollectionSection: React.FC = () => {
                 </p>
               </div>
               <div className='flex items-center gap-2 flex-wrap text-[#4E6148] text-sm'>
-                <div className='px-4 py-2 bg-[#5D784F]/10 border border-[#4E6148] rounded-lg'>
+                <div className='px-4 py-2 max-w-36 bg-[#5D784F]/10 border border-[#4E6148] rounded-lg'>
                   <p>Pangkas daun yang terinfeksi</p>
                 </div>
-                <div className='px-4 py-2 bg-[#5D784F]/10 border border-[#4E6148] rounded-lg'>
+                <div className='px-4 py-2 max-w-36 bg-[#5D784F]/10 border border-[#4E6148] rounded-lg'>
                   <p>Kurangi penyiraman berlebih</p>
                 </div>
-                <div className='px-4 py-2 bg-[#5D784F]/10 border border-[#4E6148] rounded-lg'>
+                <div className='px-4 py-2 max-w-36 bg-[#5D784F]/10 border border-[#4E6148] rounded-lg'>
                   <p>Gunakan fungisida organik (misal: neem oil)</p>
                 </div>
-                <div className='px-4 py-2 bg-[#5D784F]/10 border border-[#4E6148] rounded-lg'>
+                <div className='px-4 py-2 max-w-36 bg-[#5D784F]/10 border border-[#4E6148] rounded-lg'>
                   <p>Pastikan sirkulasi udara baik</p>
                 </div>
               </div>

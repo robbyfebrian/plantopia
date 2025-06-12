@@ -13,11 +13,11 @@ export default function DiseaseCard({
   return (
     <div
       className={clsx(
-        'relative group w-48 h-48 rounded-xl overflow-hidden shadow-md transition-all flex items-center justify-center',
+        'relative group w-36 h-36 md:w-48 md:h-48 rounded-xl overflow-hidden shadow-md transition-all flex items-center justify-center',
         sudahDitemukan ? 'bg-white border border-gray-200' : 'bg-[#4E6148]'
       )}
     >
-      <div className='relative w-44 h-44'>
+      <div className='relative w-32 h-32 md:w-44 md:h-44'>
         <Image
           src={imageUrl}
           alt={name}

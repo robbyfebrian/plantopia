@@ -9,18 +9,18 @@ import FaqPlant from '../../../../public/images/faq__plant-1.png';
 
 const FaqSection: React.FC = () => {
   return (
-    <section className='h-screen bg-white px-32 flex flex-col items-end justify-center relative gap-10 overflow-hidden'>
-      <div className='bg-[#EEE3BC] w-40 h-40 absolute -left-20 z-20 top-82 rounded-full blur-md'></div>
-      <div className='bg-[#EEE3BC] w-40 h-40 absolute -right-16 -top-20 rounded-full blur-md'></div>
+    <section className='h-screen bg-white px-8 md:px-32 flex flex-col lg:items-end justify-center relative gap-10 overflow-hidden'>
+      <div className='bg-[#EEE3BC] w-40 h-40 absolute -left-20 z-20 top-82 rounded-full blur-md hidden lg:block'></div>
+      <div className='bg-[#EEE3BC] w-40 h-40 absolute -right-16 -top-20 rounded-full blur-md hidden md:block'></div>
       <Image
         src={FaqPlant}
         alt='faq-plant'
-        className='absolute left-20 rotate-90 z-10 w-[324px] top-42 h-[538.88px]'
+        className='absolute left-20 rotate-90 z-10 w-[324px] top-42 h-[538.88px] hidden lg:block'
       />
-      <h1 className='font-prata text-6xl w-full text-center'>
+      <h1 className='font-prata text-3xl lg:text-6xl w-full text-center'>
         “Pertanyaan yang Mungkin Kamu Punya”
       </h1>
-      <Accordion type='single' collapsible className='w-[790px]'>
+      <Accordion type='single' collapsible className='lg:w-[790px]'>
         <AccordionItem value='item-1'>
           <AccordionTrigger>
             Bagaimana cara kerja deteksi penyakit tanaman di aplikasi ini?

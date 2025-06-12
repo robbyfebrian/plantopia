@@ -11,17 +11,17 @@ const CtaSection: React.FC = () => {
         <Image
           alt='cta-background'
           src={CtaImage}
-          className='absolute -top-48'
+          className='absolute -top-48 object-cover h-screen overflow-x-hidden'
         />
-        <div className='absolute inset-0 flex flex-col items-center justify-center z-20'>
-          <h2 className='font-prata text-6xl text-center text-white max-w-[900px] leading-20'>
+        <div className='absolute inset-0 px-4 flex flex-col items-center justify-center z-20'>
+          <h2 className='font-prata text-4xl lg:text-6xl text-center text-white max-w-[900px] leading-snug lg:leading-20'>
             “Gabung Komunitas Tanaman & Mulai Petualanganmu!”
           </h2>
-          <p className='font-poppins text-2xl text-center font-light text-white pt-4 pb-10'>
+          <p className='font-poppins text-xl lg:text-2xl text-center font-light text-white pt-4 pb-10'>
             Pengalaman seru dari para pecinta tanaman yang telah mencoba
             aplikasi kami.
           </p>
-          <div className='flex gap-5'>
+          <div className='flex flex-col lg:flex-row gap-5'>
             <Button
               label='Bergabung Sekarang'
               variant='primary'

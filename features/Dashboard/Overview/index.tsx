@@ -22,14 +22,14 @@ const OverviewSection: React.FC = () => {
   return (
     <div className='relative flex flex-col'>
       <div className='absolute w-full bg-[#4E6148] h-64 rounded-br-[60px]'></div>
-      <div className='relative z-19 text-white px-16 py-9'>
-        <h1 className='font-prata mb-2 text-3xl'>Halo, Robby</h1>
-        <p className='mb-4'>Level 3 - Petani Pemula</p>
-        <div className='flex gap-4 mb-4 items-center'>
-          <Progress value={progress} className='w-[60%]' />
+      <div className='relative z-19 text-white pl-20 pr-8 lg:px-16 py-9 w-screen md:w-fit'>
+        <h1 className='w-fit font-prata mb-2 text-3xl'>Halo, Robby</h1>
+        <p className='w-fit mb-4'>Level 3 - Petani Pemula</p>
+        <div className='flex gap-4 mb-4 flex-col md:flex-row md:items-center'>
+          <Progress value={progress} className='w-[40%] md:w-[60%]' />
           <span className=''>(325 / 500 XP)</span>
         </div>
-        <div className='relative flex items-start w-full bg-white rounded-2xl h-48 border border-[#B5B5B5] py-6 px-5 mb-6'>
+        <div className='relative flex flex-col md:flex-row gap-8 md:gap-0 items-start w-full bg-white rounded-2xl h-fit border border-[#B5B5B5] py-6 px-5 mb-6'>
           <div className='flex flex-col gap-4 w-full'>
             <div className='flex items-center gap-4'>
               <div className='w-16 h-16 bg-[#4E6148] rounded-lg flex items-center justify-center'>
@@ -42,7 +42,7 @@ const OverviewSection: React.FC = () => {
                 </p>
               </div>
             </div>
-            <div className='flex flex-col items-start'>
+            <div className='flex flex-col items-start max-w-2xs'>
               <p className='text-black font-semibold'>
                 Semakin lama kamu bertahan, semakin banyak hadiahnya!
               </p>
@@ -51,8 +51,8 @@ const OverviewSection: React.FC = () => {
               </p>
             </div>
           </div>
-          <div className='absolute top-0 left-1/2 h-full bg-[#B5B5B5] w-[1px]'></div>
-          <div className='flex flex-col pl-10 gap-4 w-full'>
+          <div className='hidden md:block absolute top-0 left-1/2 h-full bg-[#B5B5B5] w-[1px]'></div>
+          <div className='flex flex-col md:pl-10 gap-4 w-full'>
             <div className='flex items-center gap-4'>
               <div className='w-16 h-16 bg-[#4E6148] rounded-lg flex items-center justify-center'>
                 <Trophy size={36} className='text-white' />
@@ -65,13 +65,13 @@ const OverviewSection: React.FC = () => {
               </div>
             </div>
             <div className='flex flex-col items-start'>
-              <p className='text-black font-semibold italic'>
+              <p className='text-black font-semibold italic max-w-2xs'>
                 “Menguasai 5 penyakit daun, kamu kini siap jadi dokter tanaman!”
               </p>
             </div>
           </div>
         </div>
-        <div className='flex items-center gap-6 px-8 w-full h-48 text-center'>
+        <div className='flex flex-col md:flex-row items-center gap-6 md:px-8 w-full h-fit text-center'>
           <div className='w-full p-4 bg-white rounded-2xl border border-[#B5B5B5] flex flex-col justify-center items-center h-52'>
             <div className='w-16 h-16 bg-[#4E6148] rounded-lg flex items-center justify-center mb-1'>
               <Leaf size={28} className='text-white' />

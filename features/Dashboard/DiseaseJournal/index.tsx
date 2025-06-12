@@ -15,8 +15,8 @@ const DiseaseJournalSection: React.FC = () => {
 
   return (
     <div className='relative flex flex-col'>
-      <div className='absolute w-full bg-[#4E6148] h-[234px] rounded-br-[60px]'></div>
-      <div className='relative flex flex-col gap-5 z-10 text-white px-16 py-9'>
+      <div className='absolute w-full bg-[#4E6148] h-[360px] md:h-[234px] rounded-br-[60px]'></div>
+      <div className='relative flex flex-col gap-5 z-10 text-white px-20 lg:px-16 py-9'>
         <div className='flex flex-col items-start gap-2'>
           <h1 className='font-prata text-3xl'>Jurnal Penyakitmu</h1>
           <p>
@@ -29,7 +29,7 @@ const DiseaseJournalSection: React.FC = () => {
           <Progress value={progress} className='w-[60%]' />
         </div>
         <SearchBar placeholder='Cari penyakit tanaman...' />
-        <div className='flex flex-wrap gap-9'>
+        <div className='flex flex-wrap gap-4 md:gap-6'>
         {Array.from({ length: 10 }).map((_, idx) => (
           <DiseaseCard
             key={idx}

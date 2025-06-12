@@ -10,7 +10,7 @@ export const metadata: Metadata = {
 const RegisterPage = () => {
   return (
     <div className="flex justify-center items-center w-1/2 min-h-screen">
-      <SignUp />
+      <SignUp signInUrl='/login'/>
     </div>
   );
 };

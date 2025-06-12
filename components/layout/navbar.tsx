@@ -21,7 +21,7 @@ const Navbar: React.FC<navbarProps> = ({ style = 'light' }) => {
 
   return (
     <>
-      <nav className={`px-4 sm:px-6 md:px-16 py-4 sm:py-6 flex justify-between items-center ${bgColor} border-b ${isDark ? 'border-[#B5B5B5]' : ''} relative z-20`}>
+      <nav className={`px-4 sm:px-6 md:px-16 py-4 sm:py-6 flex justify-between items-center ${bgColor} border-b ${isDark ? 'border-[#B5B5B5]' : 'border-transparent'} relative z-20`}>
         {/* Logo */}
         <div className={`text-2xl sm:text-3xl md:text-4xl font-prata ${textColor}`}>Plantopia</div>
 
@@ -78,7 +78,7 @@ const Navbar: React.FC<navbarProps> = ({ style = 'light' }) => {
         <div className='fixed inset-0 z-30 flex'>
           {/* Drawer */}
           <div
-            className={`h-full w-4/5 max-w-xs bg-white transform transition-transform duration-300 ease-in-out translate-x-0 shadow-lg z-40`}
+            className={`h-full w-[50vw] bg-white transform transition-transform duration-300 ease-in-out translate-x-0 shadow-lg z-40`}
             onClick={(e) => e.stopPropagation()}
           >
             <div className='flex justify-between items-center px-4 py-4 border-b'>
@@ -114,7 +114,7 @@ const Navbar: React.FC<navbarProps> = ({ style = 'light' }) => {
 
           {/* Overlay */}
           <div
-            className='w-full h-full bg-black/20 backdrop-blur-[2px] transition-opacity duration-300 ease-in-out'
+            className='w-1/2 h-full bg-black/20 backdrop-blur-[2px] transition-opacity duration-300 ease-in-out'
             onClick={() => setMenuOpen(false)}
           />
         </div>

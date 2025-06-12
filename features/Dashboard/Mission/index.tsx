@@ -184,13 +184,13 @@ const MissionSection = () => {
 
   return (
     <div className='relative flex flex-col'>
-      <div className='absolute w-full bg-[#4E6148] h-32 rounded-br-[60px]'></div>
-      <div className='relative z-10 text-white px-16 py-9'>
+      <div className='absolute w-full bg-[#4E6148] h-52 md:h-32 rounded-br-[60px]'></div>
+      <div className='relative z-10 text-white pl-20 pr-8 lg:px-16 py-9'>
         <div className='flex flex-col items-start gap-2 mb-10'>
-          <h1 className='font-prata text-3xl'>
+          <h1 className='w-80 md:w-full font-prata text-3xl'>
             Misi Harian & Tantangan Spesial
           </h1>
-          <p>
+          <p className='w-80 md:w-full'>
             Tingkatkan levelmu dan raih badge dengan menyelesaikan misi merawat
             tanaman setiap hari.
           </p>
@@ -225,7 +225,7 @@ const MissionSection = () => {
               </button>
 
               {isOpen && (
-                <div className='w-full max-w-5xl relative left-0 z-10 -top-2 flex gap-3 flex-wrap border border-[#E1E1E1] shadow-[0_0_12px_rgba(0,0,0,0.2)] px-3 py-4 mx-3 rounded-b-xl'>
+                <div className='w-fit relative left-0 z-10 -top-2 flex gap-3 justify-center md:justify-center flex-wrap border border-[#E1E1E1] shadow-[0_0_12px_rgba(0,0,0,0.2)] px-3 py-4 mx-3 rounded-b-xl'>
                   {missions[label as MissionTab]?.map((mission, idx) => (
                     <MissionCard key={idx} {...mission} />
                   ))}

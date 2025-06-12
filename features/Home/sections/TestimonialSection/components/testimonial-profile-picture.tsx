@@ -7,7 +7,7 @@ const TestimonialProfiles: React.FC = () => {
   const totalProfiles = 24;
 
   return (
-    <div className='flex flex-col items-end gap-3'>
+    <div className='flex flex-col items-end gap-3 '>
       <div className='flex flex-wrap gap-4 justify-end max-w-[560px]'>
         {Array.from({ length: totalProfiles }).map((_, index) => (
           <div key={index} className='w-10 h-10 overflow-hidden rounded-full'>
@@ -18,7 +18,7 @@ const TestimonialProfiles: React.FC = () => {
           </div>
         ))}
       </div>
-      <p className='font-light font-poppins text-center'>
+      <p className='font-light font-poppins text-right md:text-center'>
         lebih dari 200 pengguna sudah bergabung
       </p>
     </div>

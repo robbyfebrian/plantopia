@@ -3,7 +3,6 @@
 import clsx from 'clsx';
 import { CalendarCheck } from 'lucide-react';
 import { MissionCardProps } from './type';
-import { useState } from 'react';
 import Image from 'next/image';
 
 const MissionCard: React.FC<MissionCardProps> = ({
@@ -16,7 +15,7 @@ const MissionCard: React.FC<MissionCardProps> = ({
   return (
     <div
       className={clsx(
-        'relative flex items-center justify-center flex-col rounded-xl p-4 w-60 h-40 shadow-sm border transition-all',
+        'relative flex text-start items-center justify-center flex-col rounded-xl p-4 w-60 h-40 shadow-sm border transition-all',
         completed
           ? 'bg-[#4E6148] text-white border-[#4E6148]'
           : 'bg-white text-gray-300 border border-gray-200'
