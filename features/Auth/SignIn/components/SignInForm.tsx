@@ -1,10 +1,11 @@
 'use client';
 
 import Link from 'next/link';
-import { useSignIn } from '@clerk/nextjs';
+import { useAuth, useSignIn } from '@clerk/nextjs';
 import { ArrowLeft } from 'lucide-react';
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
+import { syncUserProfile } from 'lib/api/userSync';
 
 const SignInForm = () => {
   const { signIn, setActive } = useSignIn();
@@ -12,6 +13,7 @@ const SignInForm = () => {
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
   const router = useRouter();
+  const { getToken } = useAuth();
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -29,6 +31,7 @@ const SignInForm = () => {
 
       if (result.status === 'complete') {
         await setActive({ session: result.createdSessionId });
+        await syncUserProfile(getToken);
         router.push('/overview');
       } else {
         console.log(result);

@@ -1,12 +1,14 @@
 'use client';
 
 import Link from 'next/link';
-import { useSignUp } from '@clerk/nextjs';
+import { useAuth, useSignUp } from '@clerk/nextjs';
 import { ArrowLeft } from 'lucide-react';
 import { useState } from 'react';
+import { syncUserProfile } from 'lib/api/userSync';
 
 const SignUpForm = () => {
   const { signUp, setActive } = useSignUp();
+  const { getToken } = useAuth();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [name, setName] = useState('');
@@ -53,8 +55,7 @@ const SignUpForm = () => {
       }
       const result = await signUp.attemptEmailAddressVerification({ code: otp });
       if (result.status === 'complete') {
-        // Optionally, set session active or redirect
-        // await setActive({ session: result.createdSessionId });
+        await syncUserProfile(getToken);
         window.location.href = '/login';
       } else {
         setError('Kode verifikasi salah atau belum lengkap');
