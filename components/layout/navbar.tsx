@@ -75,7 +75,7 @@ const Navbar: React.FC<navbarProps> = ({ style = 'light' }) => {
 
       {/* Drawer and overlay */}
       {menuOpen && (
-        <div className='fixed inset-0 z-30 flex'>
+        <div className='fixed inset-0 z-100 flex'>
           {/* Drawer */}
           <div
             className={`h-full w-[50vw] bg-white transform transition-transform duration-300 ease-in-out translate-x-0 shadow-lg z-40`}
