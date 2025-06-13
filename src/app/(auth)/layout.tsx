@@ -1,4 +1,5 @@
 import ImageWrapperSection from 'features/Auth/Wrapper';
+import Link from 'next/link';
 
 interface AuthLayoutProps {
   children: React.ReactNode;
@@ -7,7 +8,7 @@ interface AuthLayoutProps {
 const AuthLayout: React.FC<AuthLayoutProps> = ({ children }) => {
   return (
     <main className='flex h-screen w-full bg-white items-center justify-center'>
-      <a
+      <Link
         href='/'
         className='absolute top-6 left-6 flex items-center gap-2 text-gray-700 hover:text-green-600 transition-colors'
       >
@@ -27,7 +28,7 @@ const AuthLayout: React.FC<AuthLayoutProps> = ({ children }) => {
           <polyline points='12 19 5 12 12 5' />
         </svg>
         <span className='sr-only'>Back to Home</span>
-      </a>
+      </Link>
       {children}
       <ImageWrapperSection />
     </main>
