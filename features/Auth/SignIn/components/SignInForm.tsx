@@ -92,9 +92,9 @@ const SignInForm = () => {
 
           <p className='text-sm'>
             Belum punya akun?{' '}
-            <a className='text-[#5D784F] font-semibold py-3' href='/register'>
+            <Link className='text-[#5D784F] font-semibold py-3' href='/register'>
               Daftar
-            </a>
+            </Link>
           </p>
         </form>
 

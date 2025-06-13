@@ -43,7 +43,7 @@ const PlantCollectionSection: React.FC = () => {
             <CarouselPrevious variant={'secondary'} />
             <CarouselNext variant={'secondary'} />
           </Carousel>
-          <div className='md:ml-13 p-4 bg-white rounded-2xl border border-[#B5B5B5] w-full'>
+          <div className='md:ml-8 p-4 bg-white rounded-2xl border border-[#B5B5B5] w-full'>
             <div className='flex flex-col gap-4'>
               <div className='flex flex-col gap-1'>
                 <div className='flex justify-between items-center'>
@@ -76,16 +76,16 @@ const PlantCollectionSection: React.FC = () => {
                 </p>
               </div>
               <div className='flex items-center gap-2 flex-wrap text-[#4E6148] text-sm'>
-                <div className='px-4 py-2 max-w-36 bg-[#5D784F]/10 border border-[#4E6148] rounded-lg'>
+                <div className='px-4 py-2 w-36 md:w-fit bg-[#5D784F]/10 border border-[#4E6148] rounded-lg'>
                   <p>Pangkas daun yang terinfeksi</p>
                 </div>
-                <div className='px-4 py-2 max-w-36 bg-[#5D784F]/10 border border-[#4E6148] rounded-lg'>
+                <div className='px-4 py-2 w-36 md:w-fit bg-[#5D784F]/10 border border-[#4E6148] rounded-lg'>
                   <p>Kurangi penyiraman berlebih</p>
                 </div>
-                <div className='px-4 py-2 max-w-36 bg-[#5D784F]/10 border border-[#4E6148] rounded-lg'>
+                <div className='px-4 py-2 w-36 md:w-fit bg-[#5D784F]/10 border border-[#4E6148] rounded-lg'>
                   <p>Gunakan fungisida organik (misal: neem oil)</p>
                 </div>
-                <div className='px-4 py-2 max-w-36 bg-[#5D784F]/10 border border-[#4E6148] rounded-lg'>
+                <div className='px-4 py-2 w-36 md:w-fit bg-[#5D784F]/10 border border-[#4E6148] rounded-lg'>
                   <p>Pastikan sirkulasi udara baik</p>
                 </div>
               </div>

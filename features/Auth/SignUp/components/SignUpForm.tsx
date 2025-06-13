@@ -95,9 +95,9 @@ const SignUpForm = () => {
           </button>
           <p className='text-sm'>
             Sudah punya akun?{' '}
-            <a className='text-[#5D784F] font-semibold py-3' href='/login'>
+            <Link className='text-[#5D784F] font-semibold py-3' href='/login'>
               Login
-            </a>
+            </Link>
           </p>
         </form>
         <p className='font-semibold tracking-tight text-[#B5B5B5] text-xs'>
