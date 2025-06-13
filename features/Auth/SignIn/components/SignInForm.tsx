@@ -1,43 +1,39 @@
 'use client';
 
 import Link from 'next/link';
-import { useAuth, useSignIn } from '@clerk/nextjs';
 import { ArrowLeft } from 'lucide-react';
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
-import { syncUserProfile } from 'lib/api/userSync';
+import { useAuthContext } from 'context/AuthContext';
 
 const SignInForm = () => {
-  const { signIn, setActive } = useSignIn();
   const [identifier, setIdentifier] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
   const router = useRouter();
-  const { getToken } = useAuth();
+  const { signIn } = useAuthContext();
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-
+    setError('');
     try {
-      if (!signIn) {
-        setError('Sign in service is not available.');
+      const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/auth/login`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email: identifier, password }),
+      });
+      if (!res.ok) {
+        const data = await res.json();
+        setError(data.error || 'Login gagal');
         return;
       }
-
-      const result = await signIn.create({
-        identifier,
-        password,
-      });
-
-      if (result.status === 'complete') {
-        await setActive({ session: result.createdSessionId });
-        await syncUserProfile(getToken);
-        router.push('/overview');
-      } else {
-        console.log(result);
-      }
-    } catch (err: any) {
-      setError(err.errors?.[0]?.message || 'Gagal login');
+      const data = await res.json();
+      // Ambil user info dari response jika ada, atau fetch profile setelah login
+      const user = { email: identifier }; // Tambahkan field lain jika backend mengembalikan
+      signIn(user, data.token);
+      router.push('/overview');
+    } catch (err) {
+      setError('Terjadi kesalahan saat login');
     }
   };
 

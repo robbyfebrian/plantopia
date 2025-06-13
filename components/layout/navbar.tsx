@@ -4,12 +4,13 @@ import React, { useState } from 'react';
 import Link from 'next/link';
 import Button from '../common/button';
 import { navbarProps } from './type';
-import { useUser, useClerk } from '@clerk/nextjs';
+import ProfileImage from 'public/images/testimonial__profile-picture-1.jpg';
 import { Menu, X } from 'lucide-react';
+import { useAuthContext } from 'context/AuthContext';
+import Image from 'next/image';
 
 const Navbar: React.FC<navbarProps> = ({ style = 'light' }) => {
-  const { user, isSignedIn } = useUser();
-  const { signOut } = useClerk();
+  const { user, isSignedIn, signOut } = useAuthContext();
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
 
@@ -21,15 +22,40 @@ const Navbar: React.FC<navbarProps> = ({ style = 'light' }) => {
 
   return (
     <>
-      <nav className={`px-4 sm:px-6 md:px-16 py-4 sm:py-6 flex justify-between items-center ${bgColor} border-b ${isDark ? 'border-[#B5B5B5]' : 'border-transparent'} relative z-20`}>
+      <nav
+        className={`px-4 sm:px-6 md:px-16 py-4 sm:py-6 flex justify-between items-center ${bgColor} border-b ${
+          isDark ? 'border-[#B5B5B5]' : 'border-transparent'
+        } relative z-20`}
+      >
         {/* Logo */}
-        <div className={`text-2xl sm:text-3xl md:text-4xl font-prata ${textColor}`}>Plantopia</div>
+        <div
+          className={`text-2xl sm:text-3xl md:text-4xl font-prata ${textColor}`}
+        >
+          Plantopia
+        </div>
 
         {/* Desktop Menu */}
-        <div className={`hidden md:flex space-x-10 lg:space-x-16 items-center font-prata ${textColor}`}>
-          <Link href='/' className={`relative after:content-[""] after:absolute after:left-0 after:-bottom-1 after:h-[2px] after:w-full after:scale-x-0 ${underlineColor} after:transition-transform after:duration-300 hover:after:scale-x-100`}>Beranda</Link>
-          <Link href='/deteksi' className={`relative after:content-[""] after:absolute after:left-0 after:-bottom-1 after:h-[2px] after:w-full after:scale-x-0 ${underlineColor} after:transition-transform after:duration-300 hover:after:scale-x-100`}>Deteksi</Link>
-          <Link href='/article' className={`relative after:content-[""] after:absolute after:left-0 after:-bottom-1 after:h-[2px] after:w-full after:scale-x-0 ${underlineColor} after:transition-transform after:duration-300 hover:after:scale-x-100`}>Forum</Link>
+        <div
+          className={`hidden md:flex space-x-10 lg:space-x-16 items-center font-prata ${textColor}`}
+        >
+          <Link
+            href='/'
+            className={`relative after:content-[""] after:absolute after:left-0 after:-bottom-1 after:h-[2px] after:w-full after:scale-x-0 ${underlineColor} after:transition-transform after:duration-300 hover:after:scale-x-100`}
+          >
+            Beranda
+          </Link>
+          <Link
+            href='/deteksi'
+            className={`relative after:content-[""] after:absolute after:left-0 after:-bottom-1 after:h-[2px] after:w-full after:scale-x-0 ${underlineColor} after:transition-transform after:duration-300 hover:after:scale-x-100`}
+          >
+            Deteksi
+          </Link>
+          <Link
+            href='/article'
+            className={`relative after:content-[""] after:absolute after:left-0 after:-bottom-1 after:h-[2px] after:w-full after:scale-x-0 ${underlineColor} after:transition-transform after:duration-300 hover:after:scale-x-100`}
+          >
+            Forum
+          </Link>
         </div>
 
         {/* Desktop Auth */}
@@ -42,16 +68,24 @@ const Navbar: React.FC<navbarProps> = ({ style = 'light' }) => {
                 className='px-4 py-2 rounded-full font-prata text-white flex items-center gap-2 bg-[#5D784F] hover:bg-[#34432f] transition-colors duration-300 shadow-[0_0_20px_rgba(93,120,79,0.6)]'
                 onClick={() => setDropdownOpen(!dropdownOpen)}
               >
-                <span className='truncate max-w-[100px]'>{user?.firstName || user?.username || 'Pengguna'}</span>
-                <img
-                  src={user?.imageUrl || '/default-profile.png'}
+                <span className='truncate max-w-[100px]'>
+                  {user?.name || 'Pengguna'}
+                </span>
+                <Image
+                  src={ProfileImage}
                   alt='profile'
                   className='w-6 h-6 rounded-full'
                 />
               </button>
               {dropdownOpen && (
                 <div className='absolute right-0 mt-2 w-40 bg-white border rounded shadow-lg z-10'>
-                  <Link href='/overview' className='block px-4 py-2 hover:bg-gray-100 text-black' onClick={() => setDropdownOpen(false)}>Dashboard</Link>
+                  <Link
+                    href='/overview'
+                    className='block px-4 py-2 hover:bg-gray-100 text-black'
+                    onClick={() => setDropdownOpen(false)}
+                  >
+                    Dashboard
+                  </Link>
                   <button
                     className='block w-full text-left px-4 py-2 hover:bg-gray-100 text-black'
                     onClick={async () => {
@@ -68,7 +102,10 @@ const Navbar: React.FC<navbarProps> = ({ style = 'light' }) => {
         </div>
 
         {/* Hamburger Icon */}
-        <button className={`md:hidden ${iconColor}`} onClick={() => setMenuOpen(true)}>
+        <button
+          className={`md:hidden ${iconColor}`}
+          onClick={() => setMenuOpen(true)}
+        >
           <Menu size={28} />
         </button>
       </nav>
@@ -88,16 +125,24 @@ const Navbar: React.FC<navbarProps> = ({ style = 'light' }) => {
               </button>
             </div>
             <div className='flex flex-col font-prata p-4 space-y-4 text-sm text-black'>
-              <Link href='/' onClick={() => setMenuOpen(false)}>Beranda</Link>
-              <Link href='/deteksi' onClick={() => setMenuOpen(false)}>Deteksi</Link>
-              <Link href='/article' onClick={() => setMenuOpen(false)}>Forum</Link>
+              <Link href='/' onClick={() => setMenuOpen(false)}>
+                Beranda
+              </Link>
+              <Link href='/deteksi' onClick={() => setMenuOpen(false)}>
+                Deteksi
+              </Link>
+              <Link href='/article' onClick={() => setMenuOpen(false)}>
+                Forum
+              </Link>
               {!isSignedIn ? (
                 <Link href='/login' onClick={() => setMenuOpen(false)}>
                   <Button label='Bergabung' variant='primary' />
                 </Link>
               ) : (
                 <>
-                  <Link href='/overview' onClick={() => setMenuOpen(false)}>Dashboard</Link>
+                  <Link href='/overview' onClick={() => setMenuOpen(false)}>
+                    Dashboard
+                  </Link>
                   <button
                     onClick={async () => {
                       setMenuOpen(false);

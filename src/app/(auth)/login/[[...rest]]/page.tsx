@@ -1,4 +1,4 @@
-import { SignIn } from '@clerk/nextjs';
+import { SignInForm } from 'features/Auth/SignIn/components';
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
@@ -10,7 +10,7 @@ export const metadata: Metadata = {
 const LoginPage = () => {
   return (
     <div className='flex justify-center items-center w-1/2 min-h-screen'>
-      <SignIn signUpUrl='/register'/>
+      <SignInForm />
     </div>
   );
 };

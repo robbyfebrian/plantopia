@@ -1,5 +1,5 @@
-import { ClerkProvider } from '@clerk/nextjs';
 import { Prata, Poppins } from 'next/font/google';
+import { AuthProvider } from '../../context/AuthContext';
 import './globals.css';
 
 const prata = Prata({
@@ -20,12 +20,12 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <ClerkProvider>
-      <html lang='en'>
-        <body className={`${prata.variable} ${poppins.variable} antialiased`}>
-          {children}
-        </body>
-      </html>
-    </ClerkProvider>
+    <AuthProvider>
+    <html lang='en'>
+      <body className={`${prata.variable} ${poppins.variable} antialiased`}>
+        {children}
+      </body>
+    </html>
+    </AuthProvider>
   );
 }

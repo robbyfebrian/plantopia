@@ -2,6 +2,9 @@
 
 import clsx from 'clsx';
 import { AchievementCardProps } from './type';
+import { getLucideIcon } from 'lib/getLucideIcon';
+import Image from 'next/image';
+import Polygon from 'public/images/dashboard__polygon-2.svg'
 
 export default function AchievementCard({
   name,
@@ -18,7 +21,12 @@ export default function AchievementCard({
           : 'bg-white border border-[#B5B5B5]/40'
       )}
     >
-      <div className='mb-3'>
+      <div className='mb-3 relative w-12 h-12 flex items-center justify-center'>
+        <Image
+          src={Polygon}
+          alt='Polygon'
+          className='absolute'
+        />
         {
           <span
             className={clsx(
@@ -26,7 +34,7 @@ export default function AchievementCard({
               achieved ? 'text-white' : 'text-[#B5B5B5]/40'
             )}
           >
-            {icon}
+            {getLucideIcon(icon, achieved)}
           </span>
         }
       </div>

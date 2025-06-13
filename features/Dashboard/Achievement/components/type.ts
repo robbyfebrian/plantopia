@@ -1,6 +1,6 @@
 export type AchievementCardProps = {
     name: string;
     description: string;
-    icon: React.ReactNode;
+    icon: string;
     achieved: boolean;
 };

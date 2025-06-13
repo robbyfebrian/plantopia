@@ -4,14 +4,31 @@ import { Progress } from '@/components/ui/progress';
 import SearchBar from 'components/common/search';
 import { useEffect, useState } from 'react';
 import AchievementCard from './components/AchievementCard';
-import { Brain } from 'lucide-react';
+import { Achievement } from './type';
 
 const AchievementSection: React.FC = () => {
+  const [achievements, setAchievements] = useState<Achievement[]>([]);
   const [progress, setProgress] = useState(13);
 
   useEffect(() => {
-    const timer = setTimeout(() => setProgress(66), 500);
-    return () => clearTimeout(timer);
+    async function fetchAchievements() {
+      const token = localStorage.getItem('token');
+      const res = await fetch(
+        `${process.env.NEXT_PUBLIC_API_URL}/dashboard/achievement`,
+        {
+          headers: { Authorization: `Bearer ${token}` },
+        }
+      );
+      const data = await res.json();
+      setAchievements(data);
+      setProgress(
+        Math.round(
+          (data.filter((a: Achievement) => a.achieved).length / data.length) *
+            100
+        )
+      );
+    }
+    fetchAchievements();
   }, []);
 
   return (
@@ -25,21 +42,21 @@ const AchievementSection: React.FC = () => {
           </p>
         </div>
         <div className='flex flex-col gap-2'>
-          <h2 className='font-semibold text-sm md:text-xl'>
-            Kamu telah menemukan 4 dari 10 Lencana Prestasi. Raih semua lencana
+            <h2 className='font-semibold text-sm md:text-xl'>
+            Kamu telah menemukan {achievements.filter((a) => a.achieved).length} dari {achievements.length} Lencana Prestasi. Raih semua lencana
             prestasi dan jadilah ahli tanaman sejati!
-          </h2>
+            </h2>
           <Progress value={progress} className='w-[60%]' />
         </div>
         <SearchBar placeholder='Cari Lencana...' />
         <div className='flex flex-wrap gap-6'>
-          {Array.from({ length: 10 }).map((_, idx) => (
+          {achievements.map((ach) => (
             <AchievementCard
-              key={idx}
-              name={`Achievement ${idx + 1}`}
-              description={`Deskripsi untuk lencana ${idx + 1}`}
-              icon={<Brain size={32} />}
-              achieved={idx < 4}
+              key={ach.id}
+              name={ach.name}
+              description={ach.description}
+              icon={ach.iconUrl}
+              achieved={ach.achieved}
             />
           ))}
         </div>
